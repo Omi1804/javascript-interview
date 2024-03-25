@@ -1,17 +1,27 @@
-const marvel_heros = ["thor", "ironman", "spiderman"];
-const dc_heros = ["superman", "flash", "batman"];
+//singleton
+const tinderUser = new Object(); // this is another way to create object but this declares a singleton object
 
-// marvel_heros.push(dc_heros); //this way array as it is concatinate inside the array
+tinderUser.id = "123abc";
+tinderUser.name = "Omm";
+tinderUser.isLoggedIn = true;
 
-//to really merge the array into another array we use -
-// const all_heros = marvel_heros.concat(dc_heros); // this return new array
-//const all_heros = [...marvel_heros, ...dc_heros]; //spread operator -> through this we spread the into its individual elements
+console.log(tinderUser);
 
-const another_array = [1, 1, 1, 1, [1, 1, 1, 1, [1, 1, 1, 1, [1, 1, 1]]]];
+//declaring object inside an object
+const regularUser = {
+  email: "some@gmail.com",
+  fullname: {
+    firstName: "Omm",
+    LastName: "Nigam",
+  },
+};
+console.log(regularUser.fullname.firstName);
 
-//to make this array into single array
-const flat_array = another_array.flat(Infinity);
+//merging objects together
+const obj1 = { 1: "a", 2: "b", 3: "c", 4: "d", 5: "e" };
+const obj2 = { 6: "f", 7: "g", 8: "h", 9: "i", 10: "j" };
 
-//functions for creating array from non array structures
-console.log(Array.isArray("OmNigam")); //determines whether its an array or not
-console.log(Array.from("Om Nigam")); //converts string into arrya
+//const obj3 = { obj1, obj2 }; //by doing this we just put objects inside the object
+
+const obj3 = Object.assign({}, obj1, obj2);
+console.log(obj3);
