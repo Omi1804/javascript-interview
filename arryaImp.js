@@ -37,8 +37,9 @@ console.log("After ", myArr);
 
 console.log("Prev ", myArr);
 
-const myn2 = myArr.splice(1, 3); //returns the section of the arrya and also deletes that section of arrya form the original array
+const myn2 = myArr.splice(1, 3); //returns the section of the array and also deletes that section of array form the original array
 //splice includes the last element in the array
+
 console.log(myn2);
 
 console.log("After ", myArr);

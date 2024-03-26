@@ -48,3 +48,13 @@ console.log(Object.keys(tinderUser)); // Outputs an array of 'tinderUser' object
 console.log(Object.values(tinderUser)); // Outputs an array of 'tinderUser' object's values
 
 // These methods are useful for iterating over an object's properties or for performing operations on the set of keys or values.
+
+// destructuring of the objects
+const course = {
+  coursename: "js in hindi",
+  price: "999",
+  courseInstructor: "Om",
+};
+
+const { courseInstructor: instructor } = course;
+console.log(instructor);
