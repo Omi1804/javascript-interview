@@ -30,6 +30,12 @@ console.log("Prev ", myArr);
 
 const myn1 = myArr.slice(1, 3); //returns the section of the arrya but does not change the original array
 //and slice does not includes the last character of the array
+//and slice can also be used in strings
+
+//in strings
+//to get the first n characters = myArr.slice(0,n)
+//to remove first n characters = myArr.slice(n)
+//to remove the last n characters in stirng and give the result = myArr.slice(0,-n); eg: abcdefg -> abcd
 
 console.log(myn1);
 
@@ -39,7 +45,28 @@ console.log("Prev ", myArr);
 
 const myn2 = myArr.splice(1, 3); //returns the section of the array and also deletes that section of array form the original array
 //splice includes the last element in the array
+//splice cannot be used with strings
 
 console.log(myn2);
 
 console.log("After ", myArr);
+
+//split
+
+//questions to find number of time a present in string b
+function myFunction(a, b) {
+  // let count = 0;
+  // let position = b.indexOf(a);
+
+  // while(position!=-1){
+  //   count++;
+  //   position = b.indexOf(a, position+1);
+  // }
+
+  // return count;
+  return b.split(a).length - 1;
+}
+
+console.log(
+  myFunction("m", "how many times does the character occur in this sentence?")
+);

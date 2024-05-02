@@ -1,0 +1,16 @@
+/*
+
+Javascript is Synchronous in Nature by default.
+
+Js is single threaded
+
+code is executed line by line
+
+JS Engine on its own only consists of Memory heap and Call Stack
+
+Browser provides JS engine with Web API 
+
+All promises and fetch functions goes to the microtask queue or high priority queue
+
+
+*/
