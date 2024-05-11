@@ -37,6 +37,10 @@ const myn1 = myArr.slice(1, 3); //returns the section of the arrya but does not 
 //to remove first n characters = myArr.slice(n)
 //to remove the last n characters in stirng and give the result = myArr.slice(0,-n); eg: abcdefg -> abcd
 
+//in general
+// slice(3)-->give you the array without first 3 characters
+//slice(0,3)-->gives you the array of first 3 characters
+
 console.log(myn1);
 
 console.log("After ", myArr);

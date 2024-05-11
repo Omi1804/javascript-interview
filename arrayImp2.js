@@ -15,3 +15,9 @@ const flat_array = another_array.flat(Infinity);
 //functions for creating array from non array structures
 console.log(Array.isArray("OmNigam")); //determines whether its an array or not
 console.log(Array.from("Om Nigam")); //converts string into arrya
+
+//to sort the array alphabetically or by numerical order
+marvel_heros.sort();
+//for reverse sorting for numberical order
+let arr = [1, 2, -1, 3, 1];
+arr.sort((a, b) => b - a);
