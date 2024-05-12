@@ -1,40 +1,89 @@
-// here we get to know about how we fetch apis before the time of fetch comes in picture
-//i.e., through AJAX requests i.e., asynchronous js and xml requests
+//Promises in details
 
-const heading = document.querySelector("#heading");
+//The promise object represents the eventual conpletion (or failure) of an asynchronous operation and its resulting value.
 
-const requrestURL = "https://api.github.com/users/omi18";
+//creating new promise --> it contains callback function
+const promiseOne = new Promise(function (resolve, reject) {
+  //do any async operations
+  setTimeout(function () {
+    console.log("Async task is completed");
+    resolve();
+  }, 1000);
+});
 
-const xhr = new XMLHttpRequest(); //creating xml object first
-xhr.open("GET", requrestURL); //this open needs to be called for the data
+//.then has direct connection to resolve and automatically contains the value which is returned by resolve
+promiseOne.then(function () {
+  console.log("Promise consumed");
+});
 
-//now for tracking all the statechanges events we use
-xhr.onreadystatechange = function () {
-  console.log(xhr.readyState); //this tell at which state at the moment we are in
-  //each state has its own meaning
-  /*Meanign of each state 
+//second way of writing the promise are
+new Promise(function (resolve, reject) {
+  setTimeout(() => {
+    console.log("Async task 2");
+    resolve();
+  }, 1000);
+}).then(function () {
+  console.log("Async 2 resolved");
+});
 
-  0	UNSENT	Client has been created. open() not called yet.
-  1	OPENED	open() has been called.
-  2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
-  3	LOADING	Downloading; responseText holds partial data.
-  4	DONE
+//passing the arguments with promises
+const promiseThree = new Promise(function (resolve, reject) {
+  setTimeout(() => {
+    resolve({ username: "Chain", email: "example.com" });
+  }, 1000);
+});
 
-*/
+promiseThree.then(function (data) {
+  console.log(data);
+});
 
-  // we can here set the request when its all done i.e., readystate is in 4
-  if (xhr.readyState === 4) {
-    const data = JSON.parse(this.responseText); //this holds the response data from the api comes in the form of strings
-    console.log(data.avatar_url);
-    const div = document.createElement("div");
-    const img = document.createElement("img");
-    div.appendChild(img);
-    img.setAttribute("src", data.avatar_url);
-    img.setAttribute("width", "100px");
-    img.setAttribute("height", "100px");
+//using reject
+const promiseFour = new Promise(function (resolve, reject) {
+  setTimeout(() => {
+    let error = true;
+    if (!error) {
+      resolve({ msg: "Resolved User" });
+    } else {
+      reject({ msg: "Error something went wrong" });
+    }
+  }, 1000);
+});
 
-    heading.appendChild(div);
+//we can chain the .then function for multiple extractoin of values each .then connects to another .then
+promiseFour
+  .then((data) => {
+    console.log(data);
+    return data.msg;
+  })
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+  .finally(() => {
+    console.log("Task done for promise four");
+  });
+
+// resolving promises with async and await
+const promiseFive = new Promise(function (resolve, reject) {
+  setTimeout(() => {
+    let error = true;
+    if (!error) {
+      resolve({ msg: "Promise 5 resolved" });
+    } else {
+      reject({ msg: "Promise 5 given the error :(" });
+    }
+  }, 1000);
+});
+
+async function consumePromiseFive() {
+  try {
+    const response = await promiseFive;
+    console.log(response);
+  } catch (error) {
+    console.log(error);
   }
-};
+}
 
-xhr.send(); // this send request has to be there to call open method with all the necessary parameters
+consumePromiseFive();
