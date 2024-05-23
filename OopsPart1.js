@@ -87,3 +87,5 @@ console.log(employee.greet()); // "Hello, my name is Jane and I am a Developer"
 // Conclusion:
 // JavaScript's OOP features enable developers to write more structured, maintainable, and reusable code.
 // Understanding these concepts is crucial for designing complex applications efficiently.
+
+//Array functions does not have access to this keywords
