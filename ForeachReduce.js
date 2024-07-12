@@ -1,5 +1,7 @@
 // The `forEach` Method in JavaScript
 // `forEach` is a method that executes a provided function once for each array element.
+//forEach method original array prr ni blki uski copy p execution krta hai tbhi original array affect nhi hota
+
 const coding = ["js", "ruby", "cpp", "java", "python"];
 
 // Basic usage of `forEach`
@@ -18,6 +20,18 @@ coding.forEach(printMe); // Passing the function reference `printMe` to be execu
 coding.forEach((item, index) => {
   console.log(item, index); // Logs the item along with its index.
 });
+
+//For object we use forIn loop
+
+const obj = {
+  name: "Om Nigam",
+  age: 20,
+  subject: "computerscienc",
+};
+
+for (const key in obj) {
+  console.log(key, ":", obj[key]);
+}
 
 // `forEach` with array of objects
 const myCoding = [

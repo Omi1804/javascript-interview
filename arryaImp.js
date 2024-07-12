@@ -1,3 +1,14 @@
+//Array ekk reference datatype hai... jesa ki hame yaad hai ki saare brackerts wale datatypes reference wale hote h...(), {}, []
+// reference types mtlb enki values direct copy nhi ki jaa skti sirf ekk reference create hota h
+
+let a = [1, 2, 3, 4, 5];
+let b = a;
+
+b.pop();
+
+//here we can aslo see that ki array a se bhi ekk element pop ho gya blki hmen sirf b se pop kiya tha
+// this is called reference type variables
+
 //Arrays always does shallow copies through copy operations
 //shallow copy of an object is the copy whose properties shares the same references
 //deep copy of the object is the copy whose properties do not share the same references
@@ -6,6 +17,15 @@ const myArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const myHeroes = ["shaktiman", "nagarjun"];
 
 const myArray2 = new Array(1, 2, 3, 4);
+
+//To make the deeep copy in arrays we use spread operator
+let a2 = [1, 2, 3, 4, 5];
+let b2 = [...a2]; //yaha prr eska simple mtlb h ki jaha ...a2 hai waha a2 ki saari values b2 k andr aa jaae no ki reference aa jaae
+// b2 will be like b2 = [1,2,3,4] and now if we do
+
+b2.pop(); //a2 does not loose any elements
+
+// same can be applied for the objects also
 
 //++++++++++++ Array methods +++++++++
 
@@ -74,3 +94,14 @@ function myFunction(a, b) {
 console.log(
   myFunction("m", "how many times does the character occur in this sentence?")
 );
+
+// Note: Array asal m arrays hote hi nhi h wo objects hote h
+let arr = [1, 2, 3, 4, 5];
+//actually these are internally saved as
+let actualarr = {
+  0: 1,
+  1: 2,
+  2: 3,
+  3: 4,
+  4: 5,
+};

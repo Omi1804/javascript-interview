@@ -28,6 +28,7 @@ varkiSaccaai();
 //aur let braces scoped hota h mtlb ekk "{" se doosre "}" tkk
 
 //Third Difference ------> var add itself to the window's object
+
 //JS me kai features nhi hai jo ham use krr skte hai aur wo cize hme js language se nhi blki browser se milti hai, asise saare features jo js kaa part nhi h but fr bhi ham use krr skte hai unhe ham doodh skte h ekk particular object me jiska naam hai window
 //features like alert , console, settimeout , setinterval, fetch, localstorage, screen...etc y saari cize js language kaa part nhi bulki browser se milti hai. Enhe dekhne k liye browser k console p window object enter kro.
 
