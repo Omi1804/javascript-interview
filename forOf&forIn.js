@@ -23,7 +23,7 @@ const map = new Map();
 map.set("IN", "India");
 map.set("USA", "United States Of America");
 map.set("FR", "France");
-map.set("IN", "Bharat"); // This will replace the previous value for "IN" because keys are unique.
+map.set("IN", "Bharat"); // This dwill replace the previous value for "IN" because keys are unique.
 
 // Iterating over Map entries
 for (const i of map) {

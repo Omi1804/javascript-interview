@@ -1,37 +1,36 @@
-// hoisting
-// variables and functions are hoisted which means their declaration is moved to the top of the code
+// Hoisting
+// Variables and functions are hoisted, which means their declarations are moved to the top of the code.
 
 /*
-which means
-
+This means that when we write:
 
 var a;
-a=12;
+a = 12;
 
-so var a moves to the very top of the code (subse uper)
+The declaration `var a` is moved to the top of the code.
 
-so if we write 
+So, if we write:
 
 console.log(a);
 var a;
-a=12;
-|
-|
+a = 12;
 
-how this will gonnal resultant in is:
-var a; ----> moved to the very top of the code
+It results in:
 
-then runs console.log(a);
+var a; // Declaration is hoisted to the top
+console.log(a); // This logs 'undefined' because 'a' is declared but not yet assigned a value
+a = 12; // Initialization happens here
 
-then initializations happens: a= 12;
-
-that's why console.log(a) results in undefined
+That's why console.log(a) results in 'undefined'.
 */
+
+// Example with function hoisting
 
 hello();
 
 function hello() {
-  console.log("kyaa krre ho hoisting sikh rhe kyaa");
+  console.log("Kyaa krre ho, hoisting sikh rhe kyaa");
 }
 
-// in this example also declration moves to the very top of the code then runs hello() that's how we can use functions and variables before they were declared
+// In this example, the function declaration `function hello()` is hoisted to the top of the code.
+// This allows us to call `hello()` before the function is defined.

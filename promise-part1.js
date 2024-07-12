@@ -107,6 +107,18 @@ async function getAllUsers() {
 
 getAllUsers();
 
+// Promise.all
+
+const promise1 = Promise.resolve(1);
+const promise2 = 2;
+const promise3 = new Promise(function (resolve, reject) {
+  setTimeout(resolve, 3000, "foo");
+});
+
+Promise.all([promise1, promise2, promise3]).then((res) => {
+  console.log(res);
+});
+
 // Conclusion:
 // Promises are a core component in writing asynchronous code in JavaScript.
 // They help in managing asynchronous operations by providing a mechanism to handle success or failure.
