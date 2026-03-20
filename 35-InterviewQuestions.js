@@ -1,8 +1,12 @@
 /*
 1. Difference between if else and terniary operator...ifelse is a statement whereas terniary is a expression..like expression is something which can be evaluated to a single value and can be stored in a variable whereas in statement we cannot do such 
+
 2. Parent div is flex with 2 childs both span if we give height and width to span does it work ? --> yes because as soon as we give a parent flex its child becomes flex items which are display block by default
+
 3. If i put <Om></Om> in html does it work or give error ? ---> No, it will works as a inline element and does not gives the error
+
 4. How to do shallow copy and deep copy in javascript ? --> in case of objects we do shallow copying as object.assign or through {...}spread operator and for deep copy we do JSON.parse and JSON.stringify
+
 5. What are clousers
 6. output:
     console.log(a); --> undefined
