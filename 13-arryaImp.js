@@ -1,65 +1,78 @@
-//Array ekk reference datatype hai... jesa ki hame yaad hai ki saare brackerts wale datatypes reference wale hote h...(), {}, []
-// reference types mtlb enki values direct copy nhi ki jaa skti sirf ekk reference create hota h
+// Array ek reference datatype hai... jesa ki hame yaad hai ki [], {} jaise datatypes reference types hote hain
+// (Note: () function syntax ka part hota hai, datatype nahi hota)
+// Reference types mtlb variables actual value store nahi karte, balki uska reference (address) store karte hain
 
 let a = [1, 2, 3, 4, 5];
 let b = a;
 
 b.pop();
 
-//here we can aslo see that ki array a se bhi ekk element pop ho gya blki hmen sirf b se pop kiya tha
-// this is called reference type variables
+// yaha hum dekh sakte hain ki array a se bhi ek element remove ho gaya
+// kyunki a aur b dono same reference ko point kar rahe hain
+// isliye ek variable se change karne par dusre me bhi reflect hota hai
 
-//Arrays always does shallow copies through copy operations
-//shallow copy of an object is the copy whose properties shares the same references
-//deep copy of the object is the copy whose properties do not share the same references
+//---------------- Copy concepts ----------------
+
+// Arrays khud se copy nahi karte
+// kuch operations (jaise spread, slice, concat) shallow copy banate hain
+
+// Shallow copy ka matlab:
+// top-level values copy hoti hain, lekin nested objects same reference share karte hain
+
+// Deep copy ka matlab:
+// har level par new copy banti hai, koi shared reference nahi hota
 
 const myArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const myHeroes = ["shaktiman", "nagarjun"];
 
 const myArray2 = new Array(1, 2, 3, 4);
 
-//To make the deeep copy in arrays we use spread operator
+// Spread operator shallow copy banata hai (deep copy nahi)
 let a2 = [1, 2, 3, 4, 5];
-let b2 = [...a2]; //yaha prr eska simple mtlb h ki jaha ...a2 hai waha a2 ki saari values b2 k andr aa jaae no ki reference aa jaae
-// b2 will be like b2 = [1,2,3,4] and now if we do
+let b2 = [...a2]; // yaha values copy hoti hain, reference nahi (sirf top level)
 
-b2.pop(); //a2 does not loose any elements
+b2.pop(); // a2 par koi effect nahi padega
 
-// same can be applied for the objects also
+// Note: agar nested objects hote to spread unhe deep copy nahi karta
+
+// same concept objects par bhi apply hota hai
 
 //++++++++++++ Array methods +++++++++
 
 // myArr.push(6);
 // myArr.pop();
 
-//myArr.unshift(9); //adds value to the very beginning of the array
+// myArr.unshift(9); // adds value to the very beginning of the array
 
-myArr.shift(); //removes value from the very beginning of the array
+myArr.shift(); // removes value from the very beginning of the array
 
 // console.log(myArr.includes(9));
-// console.log(myArr.indexOf(11)); //gives the index of the item and if not then -1
+// console.log(myArr.indexOf(11)); // agar element nahi mile to -1 return karega
 
-const newArr = myArr.join(); //adds all the elements into the string seperated by commans
+const newArr = myArr.join(); // array ko string me convert karta hai (comma separated)
 
 // console.log(myArr);
 // console.log(newArr);
 
-//-----------Slice and splice--------------------------------
+//----------- Slice and splice --------------------------------
 
 console.log("Prev ", myArr);
 
-const myn1 = myArr.slice(1, 3); //returns the section of the arrya but does not change the original array
-//and slice does not includes the last character of the array
-//and slice can also be used in strings
+const myn1 = myArr.slice(1, 3);
+// slice(start, end)
+// array ka ek portion return karta hai bina original array ko change kiye
+// end index include nahi hota
 
-//in strings
-//to get the first n characters = myArr.slice(0,n)
-//to remove first n characters = myArr.slice(n)
-//to remove the last n characters in stirng and give the result = myArr.slice(0,-n); eg: abcdefg -> abcd
+// strings me bhi slice use hota hai
 
-//in general
-// slice(3)-->give you the array without first 3 characters
-//slice(0,3)-->gives you the array of first 3 characters
+// in strings:
+// first n characters = str.slice(0, n)
+// first n characters remove = str.slice(n)
+// last n characters remove = str.slice(0, -n)
+
+// general:
+// slice(3) --> first 3 elements skip karke baaki return karega
+// slice(0,3) --> first 3 elements return karega
 
 console.log(myn1);
 
@@ -67,37 +80,36 @@ console.log("After ", myArr);
 
 console.log("Prev ", myArr);
 
-const myn2 = myArr.splice(1, 3); //returns the section of the array and also deletes that section of array form the original array
-//splice includes the last element in the array
-//splice cannot be used with strings
+const myn2 = myArr.splice(1, 3);
+// splice(start, count)
+// yeh start index se 'count' number of elements remove karta hai
+// aur original array ko modify karta hai
+
+// splice strings par use nahi hota kyunki strings immutable hoti hain
 
 console.log(myn2);
 
 console.log("After ", myArr);
 
-//split
+//---------------- split ----------------
 
-//questions to find number of time a present in string b
+// question: string b me character a kitni baar aata hai
 function myFunction(a, b) {
-  // let count = 0;
-  // let position = b.indexOf(a);
-
-  // while(position!=-1){
-  //   count++;
-  //   position = b.indexOf(a, position+1);
-  // }
-
-  // return count;
   return b.split(a).length - 1;
 }
 
 console.log(
-  myFunction("m", "how many times does the character occur in this sentence?")
+  myFunction("m", "how many times does the character occur in this sentence?"),
 );
 
-// Note: Array asal m arrays hote hi nhi h wo objects hote h
+//---------------- Internal nature of arrays ----------------
+
+// Note: JavaScript me arrays internally objects hote hain (special type of objects)
+// lekin unke paas extra features hote hain jaise ordering, length property, aur array methods
+
 let arr = [1, 2, 3, 4, 5];
-//actually these are internally saved as
+
+// conceptually is tarah represent kiya ja sakta hai:
 let actualarr = {
   0: 1,
   1: 2,
@@ -105,3 +117,4 @@ let actualarr = {
   3: 4,
   4: 5,
 };
+// (real array me 'length' property aur methods bhi hote hain)

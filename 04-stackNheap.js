@@ -1,5 +1,5 @@
 // stack (used in Primitive types) , Heap (Non-Primitive)
-//whatever the value is stored in stack we get's its copy and whatever the value is stored in head we get's the reference of the original variable
+//whatever the value is stored in stack we get's its copy and whatever the value is stored in heap we get's the reference of the original variable
 
 let name = "Om Nigam"; //this goes to stack
 let anotherName = name; //here the copy of the name is stored not the actual name
