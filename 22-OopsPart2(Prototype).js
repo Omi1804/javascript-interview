@@ -7,7 +7,7 @@ console.log(heros);
 
 //hence js has prototypial behaviour i.e., it can go on and on to the deep of the element until i gets retured null
 
-//for EX: Arrya ---> internally has object prototype ---> then prototype stops here
+//for EX: Array ---> internally has object prototype ---> then prototype stops here
 //or String --> It also has object prototype
 
 //hence we can say that everything in javascript is object originally
